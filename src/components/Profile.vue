@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>关于</h2>
-    <p>商城项目</p>
+    <p>商城项目123</p>
   </div>
 </template>
 
