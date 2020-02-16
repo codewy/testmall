@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>关于</h2>
-    <p>我是内容</p>
+    <p>哈哈哈</p>
   </div>
 </template>
 
