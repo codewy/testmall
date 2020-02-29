@@ -1,0 +1,2 @@
+# GET http://123.207.32.32:8000/home/multidata
+GET http://localhost:3000/id
