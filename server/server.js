@@ -9,12 +9,14 @@ const SECRET = 'aksjd899h9a18'
 app.use(express.json())
 
 
+// ~ 查询用户信息
 app.get('/api/user', async(req, res) => {
   const user = await User.find()
   res.send(user)
 })
 
 
+// ~ 用户注册
 app.post('/api/register', async(req, res) => {
   console.log(req.body)
 
@@ -28,6 +30,7 @@ app.post('/api/register', async(req, res) => {
 })
 
 
+// ~ 登录信息
 app.post('/api/login', async(req, res) => {
   console.log(req.body)
 
@@ -53,7 +56,8 @@ app.post('/api/login', async(req, res) => {
     })
   }
 
-  // 生成token
+
+  //~ 生成token
   
   const token = jwt.sign({
     id: String(user._id),
@@ -73,6 +77,8 @@ const auth = async (req, res, next) => {
   next()
 }
 
+
+// ~ 个人信息
 app.get('/api/profile', auth, async(req, res) => {
   
   console.log(req.user)
@@ -80,6 +86,8 @@ app.get('/api/profile', auth, async(req, res) => {
 
   res.send(req.user)
 })
+
+
 
 app.listen(3000, ()=> {console.log('http://localhost:3000/api')})
 
