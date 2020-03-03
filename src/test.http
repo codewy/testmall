@@ -1,2 +1,38 @@
 # GET http://123.207.32.32:8000/home/multidata
-GET http://localhost:3000/id
+@url = http://localhost:3000/api
+@json = Content-Type: application/json
+
+### 所有用户
+get {{url}}/user
+{{json}}
+
+### 注册
+post {{url}}/register
+{{json}}
+
+{
+  "username": "user2",
+  "password": "123456"
+}
+
+### token 登录
+post {{url}}/login
+{{json}}
+
+{
+  "username": "user1",
+  "password": "123456"
+}
+
+### 个人信息
+get {{url}}/profile
+Authorization: : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNWVjZDFmNjU4ZDlhMGVmNGJiNDcxMyIsImlhdCI6MTU4MzI3MTQzOX0.MxCQmfZkptD_NCmuH1EERkuyXUJ_rZeBLNVTF1cAAyQ
+
+
+
+
+
+
+
+
+

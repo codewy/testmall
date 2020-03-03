@@ -19,11 +19,14 @@
             <td>{{ item.date }}</td>
             <td>{{ item.price | showPrice }}</td>
             <td>
-              <button @click="sub(index)" :disabled="item.count <= 1">-</button>
+              <button @click="sub(index)" :disabled="item.count <= 1"><i class="el-icon-circle-plus"></i></button>
+              
               {{ item.count }}
-              <button @click="add(index)">+</button>
+              <button @click="add(index)"><i class="el-icon-remove"></i></button>
+              
             </td>
-            <td><button @click="btnClick(index)">移除</button></td>
+            <!-- <td><button @click="btnClick(index)">移除</button></td> -->
+            <td><el-button type="primary" icon="el-icon-delete" size='mini'@click="btnClick(index)"></el-button></td>
           </tr>
         </tbody>
       </table>

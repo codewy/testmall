@@ -13,6 +13,7 @@
             <th>用户名称</th>
             <th>性别</th>
             <th>年龄</th>
+            <th>操作</th>
           </tr>
         </thead>
         <!-- ! 表格body -->
@@ -22,6 +23,9 @@
             <td>{{ item.name }}</td>
             <td>{{ item.sex }}</td>
             <td>{{ item.age }}</td>
+            <td>
+              <button @click="btnPost">删除</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -47,6 +51,20 @@ export default {
         this.userid = res.data
 
       })
+  },
+  methods: {
+    btnPost() {
+      axios,post('/post', {
+        userid: 1
+      }).then(res => {
+        console.log(res.data)
+        if(res.data.status === 1000) {
+          console.log('OK')
+        } else {
+          console.log("失败")
+        }
+      })
+    }
   }
   
 };
