@@ -5,10 +5,12 @@ module.exports = {
         components: "@/components",
         content: "components/content",
         common: "components/common",
+        login: "components/login",
         assets: "@/assets",
         network: "@/network",
         views: "@/views",
-        server: "@/server"
+        server: "@/server",
+        
       }
     }
   },

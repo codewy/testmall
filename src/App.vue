@@ -6,6 +6,7 @@
     <router-link to="/user" tag="button" replace>用户</router-link>
     <router-link to="/cart" tag="button" replace>购物车</router-link>
     <router-link to="/post" tag="button" replace>Post</router-link>
+    <router-link to="/login" tag="button" replace>登录</router-link>
 
     <button @click="proClick">我的</button>
 
@@ -93,7 +94,7 @@ export default {
 </script>
 
 <style>
-@import "assets/css/base.css";
+/* @import "assets/css/base.css"; */
 
 .active {
   color: red;

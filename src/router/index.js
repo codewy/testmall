@@ -12,6 +12,8 @@ const User = () => import ('components/User')
 const Profile = () => import ('components/Profile')
 const Cart = () => import ('components/Cart')
 const Post = () => import ('components/Post')
+const Login = () => import ('login/Login')
+
 
 //~ 1.通过Vue.use安装插件
 Vue.use(VueRouter)
@@ -76,6 +78,13 @@ const routes = [
     component: Post,
     meta: {
       title: 'post'
+    }
+  },
+  {
+    path: '/login',
+    component: Login,
+    meta: {
+      title: 'Login'
     }
   }
 
