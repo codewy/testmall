@@ -1,11 +1,10 @@
 <template>
 <el-container style="height: 100%vh; border: 1px solid #eee">
-  <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+  <el-aside width="200px" style="background-color: rgb(238, 241, 246); height: 100%vh">
     <el-menu :default-openeds="['1']">
       <el-submenu index="1">
         <template slot="title"><i class="el-icon-notebook-2"></i>新闻类别</template>
         <el-menu-item-group>
-          <template slot="title"><i class="el-icon-folder"></i>时尚类</template>
           <el-menu-item index="1-1"><i class="el-icon-document"></i>内容1</el-menu-item>
           <el-menu-item index="1-2"><i class="el-icon-document"></i>内容2</el-menu-item>
         </el-menu-item-group>
@@ -16,16 +15,9 @@
   </el-aside>
   
   <el-container>
-    <el-header style="text-align: left; font-size: 14px">
-      <el-dropdown>
-        <i class="el-icon-setting" style="margin-right: 15px"></i>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>查看</el-dropdown-item>
-          <el-dropdown-item>新增</el-dropdown-item>
-          <el-dropdown-item>删除</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
-      <span>王小虎</span>
+    <el-header style="text-align: center; font-size: 18px; color:#fff; ">
+      
+      <span>微元新闻管理系统</span>
       
     </el-header>
     
@@ -52,7 +44,7 @@
         address: '上海市普陀区金沙江路 1518 弄'
       };
       return {
-        tableData: Array(20).fill(item)
+        tableData: Array(8).fill(item)
       }
     }
   };

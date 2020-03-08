@@ -11,7 +11,7 @@ post {{url}}/register
 {{json}}
 
 {
-  "username": "user2",
+  "username": "admin",
   "password": "123456"
 }
 
@@ -20,13 +20,13 @@ post {{url}}/login
 {{json}}
 
 {
-  "username": "user1",
+  "username": "admin",
   "password": "123456"
 }
 
 ### 个人信息
 get {{url}}/profile
-Authorization: : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNWVjZDFmNjU4ZDlhMGVmNGJiNDcxMyIsImlhdCI6MTU4MzI3MTQzOX0.MxCQmfZkptD_NCmuH1EERkuyXUJ_rZeBLNVTF1cAAyQ
+Authorization: : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNjA5YjJkMmQ2NzRhMTFhODBmZTdlOCIsImlhdCI6MTU4MzM5MDk4M30.BZG-iI81kHgCVeckJisUItgMLUHocH_uMM87vWZwwvo
 
 
 

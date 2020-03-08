@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 
 //~ 用过懒加载方式加载组件
 const Home = () => import ('components/Home')
-const News = () => import ('components/homechild/News')
+const Newss = () => import ('components/homechild/Newss')
 const Message = () => import ('components/homechild/Message')
 
 const About = () => import ('components/About')
@@ -13,6 +13,11 @@ const Profile = () => import ('components/Profile')
 const Cart = () => import ('components/Cart')
 const Post = () => import ('components/Post')
 const Login = () => import ('login/Login')
+
+const News = () => import ('components/News')
+const CreateArticle = () => import ('components/news/CreateArticle')
+const ListArticle = () => import ('components/news/ListArticle')
+const EditArticle = () => import ('components/news/EditArticle')
 
 
 //~ 1.通过Vue.use安装插件
@@ -31,8 +36,8 @@ const routes = [
     },
     children: [
       {
-        path: 'news',
-        component: News
+        path: 'newss',
+        component: Newss
       },
       {
         path: 'message',
@@ -85,7 +90,32 @@ const routes = [
     component: Login,
     meta: {
       title: 'Login'
-    }
+    },
+  },
+  {
+    path: '/news',
+    component: News,
+    meta: {
+      title: 'News'
+    },
+    children:[
+      {
+        path: '',
+        redirect: 'listarticle'
+      },
+      {
+        path: 'createarticle',
+        component: CreateArticle
+      },
+      {
+        path: 'listarticle',
+        component: ListArticle
+      },
+      {
+        path: 'editarticle/:id',
+        component: EditArticle
+      }
+    ]
   }
 
 ]

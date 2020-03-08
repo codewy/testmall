@@ -5,7 +5,8 @@
     <router-link to="/about" tag="button" replace>关于</router-link>
     <router-link to="/user" tag="button" replace>用户</router-link>
     <router-link to="/cart" tag="button" replace>购物车</router-link>
-    <router-link to="/post" tag="button" replace>Post</router-link>
+    <router-link to="/post" tag="button" replace>post</router-link>
+    <router-link to="/news" tag="button" replace>新闻系统</router-link>
     <router-link to="/login" tag="button" replace>登录</router-link>
 
     <button @click="proClick">我的</button>
