@@ -2,7 +2,6 @@ const express = require('express')
 const News = require('./module/news')
 // const jwt = require('jsonwebtoken')
 
-
 const app = express()
 
 //~ 解析,用req.body获取post参数

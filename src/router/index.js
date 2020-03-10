@@ -3,22 +3,23 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 //~ 用过懒加载方式加载组件
-const Home = () => import ('components/Home')
-const Newss = () => import ('components/homechild/Newss')
-const Message = () => import ('components/homechild/Message')
+const Home = () => import('components/Home')
+const Newss = () => import('components/homechild/Newss')
+const Message = () => import('components/homechild/Message')
 
-const About = () => import ('components/About')
-const User = () => import ('components/User')
-const Profile = () => import ('components/Profile')
-const Cart = () => import ('components/Cart')
-const Post = () => import ('components/Post')
-const Login = () => import ('login/Login')
+const About = () => import('components/About')
+const User = () => import('components/User')
+const Profile = () => import('components/Profile')
+const Cart = () => import('components/Cart')
+const Post = () => import('components/Post')
+const Login = () => import('login/Login')
+const Admin = () => import('login/Admin')
 
-const News = () => import ('components/News')
-const CreateArticle = () => import ('components/news/CreateArticle')
-const ListArticle = () => import ('components/news/ListArticle')
-const EditArticle = () => import ('components/news/EditArticle')
 
+const News = () => import('components/News')
+const CreateArticle = () => import('components/news/CreateArticle')
+const ListArticle = () => import('components/news/ListArticle')
+const EditArticle = () => import('components/news/EditArticle')
 
 //~ 1.通过Vue.use安装插件
 Vue.use(VueRouter)
@@ -50,7 +51,7 @@ const routes = [
     component: About,
     meta: {
       title: '关于'
-    },
+    }
   },
   {
     path: '/user',
@@ -76,7 +77,7 @@ const routes = [
     component: Cart,
     meta: {
       title: '购物车'
-    },
+    }
   },
   {
     path: '/post',
@@ -91,14 +92,25 @@ const routes = [
     meta: {
       title: 'Login'
     },
+    
   },
+
+  {
+    path: '/admin',
+    component: Admin,
+    meta: {
+      title: 'Admin'
+    },
+    
+  },
+
   {
     path: '/news',
     component: News,
     meta: {
       title: 'News'
     },
-    children:[
+    children: [
       {
         path: '',
         redirect: 'listarticle'
@@ -117,16 +129,15 @@ const routes = [
       }
     ]
   }
-
 ]
 
 //~ 2.创建VueRouter对象
 const router = new VueRouter({
-//~ 配置路由和组件之间的关系
-routes,
-mode: 'history',
-//~ 活跃的选择使用以下Class
-linkActiveClass: 'active'
+  //~ 配置路由和组件之间的关系
+  routes,
+  mode: 'history',
+  //~ 活跃的选择使用以下Class
+  linkActiveClass: 'active'
 })
 
 //~ 路由全局导航守卫（前置守卫 guard）
@@ -136,7 +147,16 @@ router.beforeEach((to, from, next) => {
 })
 
 //~ 后置钩子（hook）
-router.afterEach((to, from) => {
+router.afterEach((to, from) => {})
+
+
+// ~挂载登录路由守卫
+router.beforeEach((to, from, next) => {
+  if(to.path === '/login') return next()
+  // ~获取token
+  const tokenStr = window.sessionStorage.getItem('token')
+  if(!tokenStr) return next('/login')
+  next()
 })
 
 export default router

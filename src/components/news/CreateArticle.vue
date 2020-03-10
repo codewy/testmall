@@ -30,7 +30,7 @@
     },
     methods: {
       saveArticle() {
-        this.$axios.post('create', this.form).then(res => {
+        this.$axios.post('http://localhost:3000/api/create', this.form).then(res => {
           this.$message({
           message: '文章创建成功！',
           type: 'success'

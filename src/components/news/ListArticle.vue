@@ -32,7 +32,8 @@ export default {
     },
     methods: {
       findall() {
-        this.$axios.get('newslist').then(res => {
+      
+        this.$axios.get('http://localhost:3000/api/newslist').then(res => {
         this.newslist = res.data
       })
       },

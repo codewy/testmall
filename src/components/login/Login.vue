@@ -32,7 +32,6 @@
 
         <!-- 按钮区 -->
         <el-form-item class="btns">
-          <el-button type="primary" @click="query">查询</el-button>
           <el-button type="primary" @click="login">登录</el-button>
           <el-button type="info" @click="resetLoginForm">重置</el-button>
         </el-form-item>
@@ -43,49 +42,28 @@
 
 <script>
 export default {
-  name: "login",
+  name: 'login',
   methods: {
     // ~点击重置按钮重置
     resetLoginForm() {
-      this.$refs.longFormRef.resetFields();
+      this.$refs.longFormRef.resetFields()
     },
 
-    // ~ 查询
-    query() {
-      this.$refs.longFormRef.validate(async valid => {
-        const { data:res } = await this.$axios.post("/query", this.loginform)
-            console.log(res)
-            this.$message({
-          message: '查询结果：' + res[0].username,
-          type: 'success'
-          })
-           
-
-          })
-
-    },
-
-    // ~点击登录按钮
+    // ~登录入口
     login() {
       this.$refs.longFormRef.validate(async valid => {
-        // console.log(this.loginform)
+        
+        if(!valid) return
 
-        const { data: res } = await this.$axios.post("/register", this.loginform)
-        this.$message({
-          message: '注册成功：' + res.username,
-          type: 'success'
-          })
-        console.log(res);
-      });
-    },
+        const { data: res } = await this.$axios.post('login', this.loginform)
 
-    login1() {
-      this.$refs.longFormRef.validate(async valid => {
-        // console.log(this.loginform)
+        if(res.meta.status !== 200) return this.$message.error('登录失败')
 
-        const result = await this.$axios.get("/user", this.loginform);
-        console.log(result);
-      });
+        this.$message.success('登录成功')
+        window.sessionStorage.setItem('token', res.data.token)
+        this.$router.push('/admin')
+        
+      })
     }
   },
 
@@ -93,25 +71,25 @@ export default {
     return {
       //# 登录表单的数据绑定对象
       loginform: {
-        username: "admin",
-        password: "123456"
+        username: 'admin',
+        password: '123456'
       },
       // # 表单的验证规则对象
       rules: {
         //~ 验证用户名是否合法
         username: [
-          { required: true, message: "请输入用户名称", trigger: "blur" },
-          { min: 3, max: 15, message: "长度在 3 到 15 个字符", trigger: "blur" }
+          { required: true, message: '请输入用户名称', trigger: 'blur' },
+          { min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur' }
         ],
         //~ 验证密码是否合法
         password: [
-          { required: true, message: "请输入用户密码", trigger: "blur" },
-          { min: 6, max: 15, message: "长度在 6 到 15 个字符", trigger: "blur" }
+          { required: true, message: '请输入用户密码', trigger: 'blur' },
+          { min: 6, max: 15, message: '长度在 6 到 15 个字符', trigger: 'blur' }
         ]
       }
-    };
+    }
   }
-};
+}
 </script>
 
 <style scoped>

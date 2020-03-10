@@ -63,11 +63,11 @@
 </template>
 
 <script>
-import TabBar from "components/tabbar/TabBar";
-import TabBarItem from "components/tabbar/TabBarItem";
+import TabBar from 'components/tabbar/TabBar'
+import TabBarItem from 'components/tabbar/TabBarItem'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     TabBar,
     TabBarItem
@@ -75,23 +75,23 @@ export default {
   data() {
     return {
       result: []
-    };
+    }
   },
 
   methods: {
     proClick() {
       // this.$router.push('/profile')
       this.$router.replace({
-        path: "/profile",
+        path: '/profile',
         query: {
-          name: "kebi",
+          name: 'kebi',
           age: 18,
           heigth: 1.88
         }
-      });
+      })
     }
   }
-};
+}
 </script>
 
 <style>
