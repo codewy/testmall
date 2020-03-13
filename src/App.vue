@@ -8,6 +8,7 @@
     <router-link to="/post" tag="button" replace>post</router-link>
     <router-link to="/news" tag="button" replace>新闻系统</router-link>
     <router-link to="/login" tag="button" replace>登录</router-link>
+    <router-link to="/admin" tag="button" replace>后台</router-link>
 
     <button @click="proClick">我的</button>
 

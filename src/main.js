@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import axios from 'axios'
-import ElementUI from 'element-ui'
+import ElementUI, { MessageBox } from 'element-ui'
 import 'assets/css/base.css'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -17,6 +17,7 @@ axios.interceptors.request.use(config => {
   return config
 })
 Vue.prototype.$axios = axios
+Vue.prototype.$confirm = MessageBox.confirm
 
 Vue.use(ElementUI, { size: 'small', zIndex: 3000 })
 

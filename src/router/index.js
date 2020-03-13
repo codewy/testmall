@@ -13,7 +13,10 @@ const Profile = () => import('components/Profile')
 const Cart = () => import('components/Cart')
 const Post = () => import('components/Post')
 const Login = () => import('login/Login')
+const Users = () => import('login/Users')
+
 const Admin = () => import('login/Admin')
+const Main = () => import('login/Main')
 
 
 const News = () => import('components/News')
@@ -101,6 +104,9 @@ const routes = [
     meta: {
       title: 'Admin'
     },
+    redirect: '/main',
+    children: [{path: '/main', component: Main},
+                {path: '/users', component: Users}]
     
   },
 
